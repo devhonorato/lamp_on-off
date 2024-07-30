@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>lamp on-off</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        body div {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        body div img {
+            height: 180px;
+        }
+
+        #text-info{
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-family: monospace;
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body style="background: radial-gradient( #2c2c2c, black)">
+
+    <div>
+
+        <img id="lampada" src="lamp-off.png" title="Clique na lâmpada para ascende-la" onclick="onoff();" />
+        <p id="text-info">Clique na lâmpada para acende-la.</p>
+
+    </div>
+
+</body>
+
+<script>
+
+    var estado = "off";
+
+    function onoff() {
+
+        if (estado == "off") {
+            document.getElementById("lampada").src = 'lamp-on.png';
+            document.getElementById("lampada").title = 'Clique na lâmpada para apaga-la';
+            document.getElementById("text-info").innerText = 'Clique na lâmpada para apaga-la.';
+            document.getElementById("text-info").style = 'color: #000';
+            document.querySelector("body").style = 'background: radial-gradient(rgb(255 255 227), rgb(255, 255, 0))';
+            estado = "on"
+        } else {
+            document.getElementById("lampada").src = 'lamp-off.png';
+            document.getElementById("lampada").title = 'Clique na lâmpada para acende-la';
+            document.getElementById("text-info").innerText = 'Clique na lâmpada para acende-la.';
+            document.getElementById("text-info").style = 'color: #fff';
+            document.querySelector("body").style = 'background: radial-gradient( #2c2c2c, black)';
+            estado = "off";
+        }
+    }
+</script>
+
+</html>
